@@ -19,9 +19,9 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Requiring routes
-require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
+// // Requiring routes
+// require("./routes/html-routes.js")(app);
+// require("./routes/api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon successs
 db.sequelize.sync({force: true}).then(function () {
