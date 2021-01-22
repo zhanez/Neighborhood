@@ -28,8 +28,18 @@ app.get("/api/user-category", (req, res) => {
 
 //post UserCategory route after the user selects an existing category in the "Existing Category" section to then be displayed in the "My Neighborhood section"
 
+// app.post("/api/user-category", (req, res) => {
+//     db.User.findOne(
+//         { where: {id: req.body.id}
+//     }).then((category) => {
+//      db.Category.findOne( 
+//          { where: {id: req.body.id}
+//     }).then(([user, category]) => {
+//     db.UserCategory.create({UserID: user.id, CategoryID: category.id} 
+//     )}   
+//      )});
+// });
 
-
-//delete from UserCateogry table where id= ? (or email=?) ==> need to figure out the more dynamic way of doing this.
+//delete from UserCateogry table where email =
 
 };

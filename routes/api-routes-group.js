@@ -8,8 +8,8 @@ module.exports = (app) => {
 
 app.get("/api/group", (req, res) => {
     const query = {};
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
+    if (req.query.category_id) {
+      query.CategoryId = req.query.category_id;
     }
     db.Category.findAll({
       where: query,  
@@ -21,10 +21,10 @@ app.get("/api/group", (req, res) => {
             model: UserCategory
             }
         }]
-    }).then((dbCategory) => {
-      res.json(dbCategory);
+    }).then((dbUserCategory) => {
+      res.json(dbUserCategory);
 
-      console.log(dbCategory);
+      console.log(dbUserCategory);
     });
   });
 
