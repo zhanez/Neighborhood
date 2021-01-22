@@ -1,16 +1,18 @@
 const db = require("../models");
 
-// Route for getting some data about our user to be used client side
-app.get("/api/user_data", function(req, res) {
+// Get route for user table to display on the profile page.
+app.get("/api/user", function(req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
+      // Otherwise send back the user's profile information.
       res.json({
+        id: req.user.id,
+        first_name: req.user.first_name,
+        last_name: req.user.last_name,  
         email: req.user.email,
-        id: req.user.id
+        bio: req.user.bio
       });
     }
   });
