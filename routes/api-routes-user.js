@@ -1,5 +1,6 @@
 const db = require("../models");
 
+module.exports = function(app) {
 // Get route for user table to display on the profile page.
 app.get("/api/user", function(req, res) {
     if (!req.user) {
@@ -16,5 +17,20 @@ app.get("/api/user", function(req, res) {
       });
     }
 
- //put route to update user information such as, bio and name.   
+ //put route to update user information such as, bio and name. 
+ app.put("/api/user", function(req, res) {
+     db.User.update(
+         {
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            bio: req.body.bio,
+            where: {
+                 id: req.body.id
+             }
+
+         }).then((request) => {
+             res.json(request);
+         });
+        });  
   });
+};
