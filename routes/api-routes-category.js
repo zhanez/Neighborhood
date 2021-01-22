@@ -17,5 +17,13 @@ app.post("/api/category", (req, res) => {
   });
 
 //delete route to delete a category. (would need to add a CASCADE delete to category table)
-
+app.delete("/api/category/:id", (req, res) => {
+    db.Category.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbCategory) {
+      res.json(dbcategory);
+    });
+  });
 };

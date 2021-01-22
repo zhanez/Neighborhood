@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
 });
 
 Category.associate = function(models) {
-    Category.belongsToMany(models.User, {through: models.UserCategory});
+    Category.belongsToMany(models.User, {through: models.UserCategory}); //Do we need to add casecade on delete, or is by default?
   };
 
 return Category;
