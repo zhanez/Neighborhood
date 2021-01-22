@@ -22,8 +22,9 @@ app.delete("/api/category/:id", (req, res) => {
       where: {
         id: req.params.id
       }
-    }).then(function(dbCategory) {
-      res.json(dbcategory);
+    }).then((dbCategory) => {
+      res.json(dbCategory);
     });
   });
+
 };
