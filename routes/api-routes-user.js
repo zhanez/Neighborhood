@@ -1,8 +1,8 @@
 const db = require("../models");
 
-module.exports = function(app) {
+module.exports = (app) => {
 // Get route for user table to display on the profile page.
-app.get("/api/user", function(req, res) {
+app.get("/api/user", (req, res) => {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -18,7 +18,7 @@ app.get("/api/user", function(req, res) {
     }
 
  //put route to update user information such as, bio and name. 
- app.put("/api/user", function(req, res) {
+ app.put("/api/user", (req, res) => {
      db.User.update(
          {
             first_name: req.body.first_name,
@@ -27,9 +27,8 @@ app.get("/api/user", function(req, res) {
             where: {
                  id: req.body.id
              }
-
-         }).then((request) => {
-             res.json(request);
+         }).then((dbUser) => {
+             res.json(dbUser);
          });
         });  
   });
