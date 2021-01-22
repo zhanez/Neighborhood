@@ -15,4 +15,6 @@ app.get("/api/user", function(req, res) {
         bio: req.user.bio
       });
     }
+
+ //put route to update user information such as, bio and name.   
   });
