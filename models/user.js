@@ -16,18 +16,18 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    first_name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    last_name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    bio: {
-      type: DataTypes.STRING,
-      allowNull: true
-    }
+    // first_name: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false
+    // },
+    // last_name: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false
+    // },
+    // bio: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true
+    // }
   });
 
   // This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
@@ -45,9 +45,9 @@ module.exports = function(sequelize, DataTypes) {
     );
   });
 
-User.associate = function(models) {
-  User.belongsToMany(models.Category, {through: models.UserCategory});
-};
+// User.associate = function(models) {
+//   User.belongsToMany(models.Category, {through: models.UserCategory});
+// };
 
-  return User;
+//   return User;
 };
