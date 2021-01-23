@@ -2,7 +2,7 @@ const db = require("../models");
 
 module.exports = (app) => {
 // Get route for user table to display on the profile page.
-app.get("/api/user/:id", (req, res) => {
+app.get("/api/user", (req, res) => {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
