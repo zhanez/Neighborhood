@@ -10,9 +10,10 @@ app.get("/api/user", (req, res) => {
       // Otherwise send back the user's profile information.
       res.json({
         id: req.user.id,
+        email: req.user.email,
+        // password: req.user.password,
         first_name: req.user.first_name,
         last_name: req.user.last_name,  
-        email: req.user.email,
         bio: req.user.bio
       });
     }
