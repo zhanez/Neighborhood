@@ -19,11 +19,13 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 
-// // Requiring routes
+// Requiring routes
 require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js");
-
-app.use([htmlRoute, apiRoute]);
+require("./routes/api-routes-access.js")(app);
+require("./routes/api-routes-category.js")(app);
+require("./routes/api-routes-group.js")(app);
+require("./routes/api-routes-user.js")(app);
+require("./routes/api-routes-userCategory.js")(app);
 
 // Syncing our database and logging a message to the user upon successs
 db.sequelize.sync({force: true}).then(function () {

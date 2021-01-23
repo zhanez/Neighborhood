@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Passport Authentication</title>
+  <title>Neighborhood</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
@@ -12,20 +12,21 @@
 </head>
 
 <body>
-
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
+      <header>
       <a class="navbar-brand" href="/logout">
           Logout
         </a>
-      <h1 class="display-4">The Neighborhood</h1>
-      <p class="lead">Some information regarding Neighborhood's Services and what users can expect from the site. </p>
+      <h1 class="display-4 text-center">The Neighborhood</h1>
+      <p class="lead text-center">Some information regarding Neighborhood's Services and what users can expect from the site. </p>
     </div>
+  </header>
   </div>
 
   <div>
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <input id="searchBar" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </div>
 
   <div class="container">
@@ -49,12 +50,32 @@
       <button type="button" class="btn btn-outline-success btn-lg">Outdoors</button>
       <button type="button" class="btn btn-outline-success btn-lg">Movies</button>
       <button type="button" class="btn btn-outline-success btn-lg">Music</button>
-      <button type="button" class="btn btn-primary btn-lg btn-block">Add Categoryyyyyyyyyyyyyyyyyyyyyyyyyyy</button>
+      <button type="button" class="btn btn-primary btn-lg btn-block">Add Category</button>
     </div>
   </div>
 
 
-  <div class="row">
+  <div class="column mt-5">
+
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card-deck">
+          <div class="card">
+            <div class="card-body">
+              <h3 class="card-title">Profile</h3>
+              <br>
+              <p class="card-text">Email:</p>
+              <p class="card-text">Bio:</p>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+
+  <div class="row mt-5">
     <div class="col-sm-12">
       <div class="card-deck">
         <div class="card">
@@ -74,6 +95,7 @@
  </div>
 
 
+
 </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -83,3 +105,5 @@
 </body>
 
 </html>
+
+

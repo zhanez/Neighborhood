@@ -3,5 +3,13 @@ form.login {
   margin-top: 50px;
 }
 
+#searchBtn{
+  width: 24%;
+  margin-left: 10px;
+}
 
+#searchBar{
+  width: 24%;
+  margin-left: 10px;
+}
 
