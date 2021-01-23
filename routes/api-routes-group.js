@@ -13,19 +13,35 @@ app.get("/api/group", (req, res) => {
     }
     db.Category.findAll({
       where: query,  
-      include: [{
-        model: db.User,
-        required: false,
-        attributes: ['id', 'first_name', 'last_name', 'email'],
-        through: {
-            model: UserCategory
-            }
-        }]
+      include: [db.User]
     }).then((dbUserCategory) => {
       res.json(dbUserCategory);
 
       console.log(dbUserCategory);
     });
   });
+
+// FUTURE DEV- when using many to many
+  // app.get("/api/group", (req, res) => {
+  //   const query = {};
+  //   if (req.query.category_id) {
+  //     query.CategoryId = req.query.category_id;
+  //   }
+  //   db.Category.findAll({
+  //     where: query,  
+  //     include: [{
+  //       model: db.User,
+  //       required: false,
+  //       attributes: ['id', 'first_name', 'last_name', 'email'],
+  //       through: {
+  //           model: UserCategory
+  //           }
+  //       }]
+  //   }).then((dbUserCategory) => {
+  //     res.json(dbUserCategory);
+
+  //     console.log(dbUserCategory);
+  //   });
+  // });
 
 };

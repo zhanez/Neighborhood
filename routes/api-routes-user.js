@@ -12,9 +12,9 @@ app.get("/api/user", (req, res) => {
         id: req.user.id,
         email: req.user.email,
         // password: req.user.password,
-        first_name: req.user.first_name,
-        last_name: req.user.last_name,  
-        bio: req.user.bio
+        // first_name: req.user.first_name,
+        // last_name: req.user.last_name,  
+        // bio: req.user.bio
       });
     }
 
