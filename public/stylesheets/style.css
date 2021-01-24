@@ -6,6 +6,7 @@ form.login {
 #searchBtn{
   width: 24%;
   margin-left: 10px;
+  height: 20px;
 }
 
 #searchBar{
@@ -13,3 +14,23 @@ form.login {
   margin-left: 10px;
 }
 
+#categoryCol{
+  margin-top: 6%;
+  padding: 20%;
+}
+
+.card-body{
+  margin-bottom: 10%;
+}
+
+#currentMem{
+  padding: 40px;
+  /* margin-bottom: 100% */
+}
+
+.card{
+  margin-bottom: 80%;
+}
+/* .navBar{
+  align-content: center;
+} */
