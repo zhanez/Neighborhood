@@ -15,11 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
-<<<<<<< HEAD
-    },
-=======
     }
->>>>>>> 4bcb446027dce7d38fdd2d007978590051d928ad
     // first_name: {
     //   type: DataTypes.STRING,
     //   allowNull: false
