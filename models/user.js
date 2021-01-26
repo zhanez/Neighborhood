@@ -61,5 +61,5 @@ User.associate = function(models) {
   });
 };
 
-  return User;
+//   return User;
 };
