@@ -15,15 +15,14 @@ app.post("/api/category", (req, res) => {
     });
   });
 
-// **will NOT use delete route unless many to many. It will delete ALL users connected to category with a one to many**  
-//delete route to delete a category. (would need to add a CASCADE delete to category table) 
-// app.delete("/api/category/:id", (req, res) => {
-//     Category.destroy({
-//       where: {
-//         id: req.params.id
-//       }
-//     }).then((dbCategory) => {
-//       res.json(dbCategory);
-//     });
-//   });
+//delete route to delete a category, User table can allow Category ID to be null
+app.delete("/api/category/:id", (req, res) => {
+    Category.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then((dbCategory) => {
+      res.json(dbCategory);
+    });
+  });
 };

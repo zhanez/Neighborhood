@@ -7,7 +7,6 @@ app.get("/api/user", (req, res) => {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      // Otherwise send back the user's profile information.
       res.json({
         id: req.user.id,
         email: req.user.email,
@@ -15,6 +14,7 @@ app.get("/api/user", (req, res) => {
         // first_name: req.user.first_name,
         // last_name: req.user.last_name,  
         // bio: req.user.bio
+        // phone_number: req.user.phone_number
       });
     }
 

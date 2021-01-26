@@ -10,6 +10,10 @@ $(document).ready(() => {
     const userData = {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
+      //first name
+      //lastname
+      //bio
+      //phone number
     };
 
     console.log(userData.email);
