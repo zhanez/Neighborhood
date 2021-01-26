@@ -21,14 +21,8 @@ $(document).ready(() => {
     };
     console.log(newCategory.name);
 
-    let addedCategory = newCategory.name.toUpperCase();
-
-    let categoryButton = $('<button>').addClass('categoryButton btn btn-outline-success btn-lg').attr('type', 'button').attr('data-category', newCategory.name).text(addedCategory);
-    categoryList.prepend(categoryButton);
-
     insertNewCategory(newCategory.name);
-    getCategoryID();
-
+    // getCategoryID();
   });
 
   function insertNewCategory(name) {
@@ -38,24 +32,29 @@ $(document).ready(() => {
     })
       .then(() => {
         console.log("new category added");
+        $.get("/api/category", (data) => {
+          console.log(data);
+          for (var i = 0; i < data.length; i++) {
+          let categoryButton = $('<button>').addClass('categoryButton btn btn-outline-success btn-lg').attr('type', 'button').attr('id', data[i].id).text(data[i].name);
+          categoryList.prepend(categoryButton);
+        }
+      })
     })
   }
 
-  function getCategoryID() {
-    $.get("/api/category").then(data => {
-        console.log(data.id, data.name);
-
-    let buttonName = $('categoryButton').val();   
-    console.log(buttonName);
-    
-    if ( buttonName == data.name) {
-      $('categoryButton').attr('data-id', data.id);  
-    }
-    })
-  }
+  // function getCategoryID() {
+  //   $.get("/api/category", (data) => {
+  //     console.log(data);
+  //     for (var i = 0; i < data.length; i++) {
+  //       let categoryButton = $('<button>').addClass('categoryButton btn btn-outline-success btn-lg').attr('type', 'button').attr('id', data[i].id).text(data[i].name.toUppercase());
+  //     categoryList.prepend(categoryButton);
+  //   }
+  //   })
+  // }
 
 
   //Category Button function
   //
 });
+
 

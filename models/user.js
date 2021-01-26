@@ -56,10 +56,10 @@ module.exports = function(sequelize, DataTypes) {
 User.associate = function(models) {
   User.belongsTo(models.Category, {
     foreignKey: {
-      allowNull: false
+      allowNull: true
     }
   });
 };
 
-//   return User;
+  return User;
 };

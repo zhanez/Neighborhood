@@ -8,13 +8,7 @@ app.get("/api/category", (req, res) => {
     }); 
 });
 
-
-//PUT route to update the categoryID for the user. A function of the category function
-
-//GET route for the users table findone() for the my neighborhood section. A function of the category function, specify the categoryID 
-
 //post route to the category table after user clicks "add category" button
-
 app.post("/api/category", (req, res) => {
     Category.create({name: req.body.name}).then((dbCategory) => {
       res.json(dbCategory);

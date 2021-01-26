@@ -18,7 +18,7 @@ app.get("/api/user", (req, res) => {
       });
     }
 
- //put route to update CategoryID if they want to switch neighborhoods
+ //PUT route to update CategoryID if they want to switch neighborhoods
  app.put("/api/user", (req, res) => {
      db.User.update(
          {
@@ -35,7 +35,7 @@ app.get("/api/user", (req, res) => {
         });  
   });
 
-//GET route to display in neighborhood page or section
+//GET route to display in neighborhood section
   app.get("/api/user/:CategoryId", (req, res) => {   
       res.json({
         first_name: req.user.first_name,
