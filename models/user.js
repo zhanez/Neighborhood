@@ -45,8 +45,20 @@ module.exports = function(sequelize, DataTypes) {
     );
   });
 
+
+// //Many to Many  
+// User.associate = function(models) {
+//   User.belongsToMany(models.Category, {through: models.UserCategory});
+// };
+
+
+//One to Many
 User.associate = function(models) {
-  User.belongsToMany(models.Category, {through: models.UserCategory});
+  User.belongsTo(models.Category, {
+    foreignKey: {
+      allowNull: false
+    }
+  });
 };
 
   return User;

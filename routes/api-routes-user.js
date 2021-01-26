@@ -18,13 +18,14 @@ app.get("/api/user", (req, res) => {
       });
     }
 
- //put route to update user information such as, bio and name. 
+ //put route to update CategoryID if they want to switch neighborhoods
  app.put("/api/user", (req, res) => {
      db.User.update(
          {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             bio: req.body.bio,
+            CategoryId: req.body.CategoryId,
             where: {
                  id: req.body.id
              }
@@ -33,4 +34,14 @@ app.get("/api/user", (req, res) => {
          });
         });  
   });
+
+//GET route to display in neighborhood page or section
+  app.get("/api/user/:CategoryId", (req, res) => {   
+      res.json({
+        first_name: req.user.first_name,
+        last_name: req.user.last_name,  
+        bio: req.user.bio,
+        email: req.user.email
+      });
+    })
 };
