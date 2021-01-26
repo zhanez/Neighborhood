@@ -37,10 +37,16 @@ form.login {
 
  p{
     font-size: 20px;
+    color:white
  }
 
  body{
    background-image: url("smartphone-720684_1920.jpg");
    background-repeat: no-repeat;
    background-size: cover;
+ }
+
+ label {
+
+  color:black
  }
