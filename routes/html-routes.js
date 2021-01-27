@@ -1,4 +1,5 @@
 const path = require("path");
+const isAuthenticated = require("../config/middleware/isAuthenticated")
 
 module.exports = function(app){
     app.get("/", function(req, res){
@@ -30,7 +31,7 @@ module.exports = function(app){
     });
 
     //route to grouptemplate page
-    app.get("/grouptemplate", isAuthenticated, function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/grouptemplate.html"));
-    });
+    // app.get("/grouptemplate", isAuthenticated, function (req, res) {
+    //     res.sendFile(path.join(__dirname, "../public/grouptemplate.html"));
+    // });
 };

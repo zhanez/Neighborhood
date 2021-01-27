@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    },
     // first_name: {
     //   type: DataTypes.STRING,
     //   allowNull: false
@@ -46,20 +46,23 @@ module.exports = function(sequelize, DataTypes) {
   });
 
 
-// //Many to Many  
-// User.associate = function(models) {
-//   User.belongsToMany(models.Category, {through: models.UserCategory});
-// };
+//Many to Many  
+User.associate = function(models) {
+  User.belongsToMany(models.Category, {
+    through: "UserCategory", 
+      as: "Category", 
+      foreignKey: "user_id"});
+};
 
 
 //One to Many
-User.associate = function(models) {
-  User.belongsTo(models.Category, {
-    foreignKey: {
-      allowNull: false
-    }
-  });
-};
+// User.associate = function(models) {
+//   User.hasMany(models.Category, {
+//     foreignKey: {
+//       allowNull: false
+//     }
+//   });
+// };
 
-//   return User;
+  return User;
 };
