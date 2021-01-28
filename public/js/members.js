@@ -42,9 +42,9 @@ $(document).ready(() => {
     let categoryButton = $('<button>').addClass('categoryButton btn btn-outline-success btn-lg').attr('data-id', data[i].id).text(data[i].name).attr('type', 'button');
     categoryList.prepend(categoryButton);
 
-    location.reload(); //need to figure out way to display on reload
+    location.reload(); 
   }
-
+  
     //update user's category ID
     $('.categoryButton').click( function(event) {
       event.preventDefault();
@@ -67,7 +67,6 @@ $(document).ready(() => {
       data: updatedData
     }).then(()=> {
       console.log("CategoryId updated");
-      // location.reload();
 
   //Display user info in my neighborhood section based on CategoryID
       $.get("/api/user/category", (data) => {
@@ -81,16 +80,42 @@ $(document).ready(() => {
     });
   });
 })};
- 
-window.onload = function() {
+
+
+//Display new category buttons and its functions on relead or when user logs out and logs back in.
+window.onload = function() { 
   $.get("/api/category", (data) => {
     console.log(data);
     for (var i = 0; i < data.length; i++) {
     let categoryButton = $('<button>').addClass('categoryButton btn btn-outline-success btn-lg').attr('data-id', data[i].id).text(data[i].name).attr('type', 'button');
     categoryList.prepend(categoryButton);
-  }}
-)};
+  }
+  $('.categoryButton').click( function(event) {
+    event.preventDefault();
 
+    let buttonID = $(this).data('id');
+    console.log(buttonID);
+
+    let userID = $('#idUser').data('id');
+    console.log(userID);
+
+    let updatedData = {
+      CategoryId: buttonID,
+      id: userID
+    }
+
+  $.ajax("/api/user", {
+    type: "PUT",
+    data: updatedData
+  }).then(()=> {
+    console.log("CategoryId updated");
+
+  $.get("/api/user/category", (data) => {
+    console.log(data)
+    })
+  });
+ });
+})};
 
 });
 
