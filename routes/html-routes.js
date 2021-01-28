@@ -26,12 +26,7 @@ module.exports = function(app){
     });
 
     //route to members page
-    // app.get("/members", isAuthenticated, function (req, res) {
-    //     res.sendFile(path.join(__dirname, "../public/members.html"));
-    // });
-
-    //route to grouptemplate page
-    // app.get("/grouptemplate", isAuthenticated, function (req, res) {
-    //     res.sendFile(path.join(__dirname, "../public/grouptemplate.html"));
-    // });
+    app.get("/members", isAuthenticated, function (req, res) {
+        res.sendFile(path.join(__dirname, "../views/layouts/main.handlebars"));
+    });
 };
