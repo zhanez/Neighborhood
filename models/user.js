@@ -16,18 +16,18 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    // first_name: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false
-    // },
-    // last_name: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false
-    // },
-    // bio: {
-    //   type: DataTypes.STRING,
-    //   allowNull: true
-    // }
+    first_name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    bio: {
+      type: DataTypes.STRING,
+      allowNull: true
+    }
     //phone number
   });
 
