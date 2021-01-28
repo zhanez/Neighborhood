@@ -42,7 +42,7 @@ $(document).ready(() => {
     let categoryButton = $('<button>').addClass('categoryButton btn btn-outline-success btn-lg').attr('data-id', data[i].id).text(data[i].name).attr('type', 'button');
     categoryList.prepend(categoryButton);
 
-    // location.reload(); need to figure out way to display on reload
+    location.reload(); //need to figure out way to display on reload
   }
 
     //update user's category ID
@@ -66,27 +66,32 @@ $(document).ready(() => {
       type: "PUT",
       data: updatedData
     }).then(()=> {
-      console.log("CategoryId updated")
+      console.log("CategoryId updated");
       // location.reload();
+
+  //Display user info in my neighborhood section based on CategoryID
+      $.get("/api/user/category", (data) => {
+        console.log(data)
+      })
+
+      // $.get("/api/user/" + buttonID, (data) => {
+      //   console.log(data)
+      // })
+
     });
-
-
-
-    //Display user info in my neighborhood section based on CategoryID
-    // $.get("/api/user/" + buttonID, (data) => {
-    //   console.log(data)
-
-    //example to display all users regardless of categoryID
-    //   $.get("/api/user/category", (data) => {
-    //     console.log(data)
-    // })
-
-    })
-
-});
-}
-
+  });
+})};
  
+window.onload = function() {
+  $.get("/api/category", (data) => {
+    console.log(data);
+    for (var i = 0; i < data.length; i++) {
+    let categoryButton = $('<button>').addClass('categoryButton btn btn-outline-success btn-lg').attr('data-id', data[i].id).text(data[i].name).attr('type', 'button');
+    categoryList.prepend(categoryButton);
+  }}
+)};
+
+
 });
 
 

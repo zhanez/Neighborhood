@@ -36,20 +36,30 @@ app.get("/api/user", (req, res) => {
     });  
 
 //GET route to display in neighborhood section
-  app.get("/api/user/:CategoryId", (req, res) => {   
-      res.json({
-        first_name: req.user.first_name,
-        last_name: req.user.last_name,  
-        bio: req.user.bio,
-        email: req.user.email
-      });
-    });
+  // app.get("/api/user/:CategoryId", (req, res) => {   
+  //     res.json({
+  //       first_name: req.user.first_name,
+  //       last_name: req.user.last_name,  
+  //       bio: req.user.bio,
+  //       email: req.user.email
+  //     });
+  //   });
 
 //example for displaying all users regardless up categoryID
-    // app.get("/api/user/category", (req, res) => {
-    //   db.User.findAll({}).then((newDbUser))
-    //     res.json(newDbUser);
+    // app.get("/api/user/:CategoryId", (req, res) => {
+    //   db.User.findAll({
+    //     where: {CategoryId: req.body.CategoryId}
+    //   }).then((data) => {
+    //     res.json(data);
+    //   })
     //   });
+
+
+app.get("/api/user/category", (req, res) => {
+  db.User.findAll({}).then((data) => {
+    res.json(data);
+  })
+  });
 
 
 };
