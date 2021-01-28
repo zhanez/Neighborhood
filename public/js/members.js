@@ -7,7 +7,7 @@ $(document).ready(() => {
   $.get("/api/user").then(data => {
     $("#emailUser").text("Email: " + data.email);
     $("#idUser").attr("data-id", data.id).text("ID: " + data.id);
-    $("#nameUser").text(data.first_name + " " + data.last_name);
+    $("#nameUser").text("Name: " + data.first_name + " " + data.last_name);
     $("#bioUser").text("Bio: " + data.bio);
   });
 
