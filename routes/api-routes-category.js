@@ -25,4 +25,5 @@ app.delete("/api/category/:id", (req, res) => {
       res.json(dbCategory);
     });
   });
+
 };

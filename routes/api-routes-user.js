@@ -17,23 +17,23 @@ app.get("/api/user", (req, res) => {
         // phone_number: req.user.phone_number
       });
     }
+  });
 
  //PUT route to update CategoryID if they want to switch neighborhoods
  app.put("/api/user", (req, res) => {
-     db.User.update(
-         {
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            bio: req.body.bio,
-            CategoryId: req.body.CategoryId,
-            where: {
-                 id: req.body.id
-             }
+     db.User.update({
+        CategoryId: req.body.CategoryId
+        },{
+        where: {
+              id: req.body.id
+          }
          }).then((dbUser) => {
              res.json(dbUser);
-         });
-        });  
-  });
+         })
+         .catch(function(err) {
+            res.json(err);
+          });
+    });  
 
 //GET route to display in neighborhood section
   app.get("/api/user/:CategoryId", (req, res) => {   
@@ -43,5 +43,13 @@ app.get("/api/user", (req, res) => {
         bio: req.user.bio,
         email: req.user.email
       });
-    })
+    });
+
+//example for displaying all users regardless up categoryID
+    // app.get("/api/user/category", (req, res) => {
+    //   db.User.findAll({}).then((newDbUser))
+    //     res.json(newDbUser);
+    //   });
+
+
 };
