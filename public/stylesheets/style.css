@@ -41,9 +41,10 @@ form.login {
  }
 
  body{
-   background-image: url("smartphone-720684_1920.jpg");
+   /* background-image: url("smartphone-720684_1920.jpg"); */
    background-repeat: no-repeat;
    background-size: cover;
+   background-color: cadetblue;
  }
 
  label {
