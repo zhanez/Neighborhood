@@ -27,6 +27,6 @@ module.exports = function(app){
 
     //route to members page
     app.get("/members", isAuthenticated, function (req, res) {
-        res.render("index");
+        res.render("members");
     });
 };
