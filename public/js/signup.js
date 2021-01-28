@@ -10,6 +10,10 @@ $(document).ready(() => {
     const userData = {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
+      //first name
+      //lastname
+      //bio
+      //phone number
     };
 
     console.log(userData.email);
@@ -20,12 +24,8 @@ $(document).ready(() => {
     }
     // If we have an email and password, run the signUpUser function
     signUpUser(userData.email, userData.password);
-    // emailInput.val("");
-    // passwordInput.val("");
   });
 
-  // Does a post to the signup route. If successful, we are redirected to the members page
-  // Otherwise we log any errors
   function signUpUser(email, password) {
     console.log(email);
     console.log(password);
@@ -36,7 +36,6 @@ $(document).ready(() => {
     })
       .then(() => {
         window.location.replace("/members");
-        // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
   }
