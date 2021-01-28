@@ -6,10 +6,10 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-//One to Many
-Category.associate = function(models) {
-    Category.hasMany(models.User); //Do we need to add casecade on delete, or is by default?
-  };  
+    //One to Many
+    Category.associate = function (models) {
+        Category.hasMany(models.User); //Do we need to add casecade on delete, or is by default?
+    };
 
     return Category;
 };

@@ -7,9 +7,8 @@ $(document).ready(() => {
   $.get("/api/user").then(data => {
     $("#emailUser").text("Email: " + data.email);
     $("#idUser").attr("data-id", data.id).text("ID: " + data.id);
-    // $("#nameUser").text(data.first_name + " " + data.last_name);
-    // $("#bioUser").text("Bio: " + data.bio);
-    //phone number
+    $("#nameUser").text(data.first_name + " " + data.last_name);
+    $("#bioUser").text("Bio: " + data.bio);
   });
 
   //Add category to list of categories
@@ -18,7 +17,7 @@ $(document).ready(() => {
     if (!categoryInput.val().trim()) {
       return;
     }
-    const newCategory= {
+    const newCategory = {
       name: categoryInput.val().trim()
     };
     console.log(newCategory.name);
@@ -35,87 +34,89 @@ $(document).ready(() => {
   }
 
   function getCategoryID() {
-  //Create new cateogry button  
-  $.get("/api/category", (data) => {
-    console.log(data);
-    for (var i = 0; i < data.length; i++) {
-    let categoryButton = $('<button>').addClass('categoryButton btn btn-outline-success btn-lg').attr('data-id', data[i].id).text(data[i].name).attr('type', 'button');
-    categoryList.prepend(categoryButton);
+    //Create new cateogry button  
+    $.get("/api/category", (data) => {
+      console.log(data);
+      for (var i = 0; i < data.length; i++) {
+        let categoryButton = $('<button>').addClass('categoryButton btn btn-outline-success btn-lg').attr('data-id', data[i].id).text(data[i].name).attr('type', 'button');
+        categoryList.prepend(categoryButton);
 
-    location.reload(); 
-  }
-  
-    //update user's category ID
-    $('.categoryButton').click( function(event) {
-      event.preventDefault();
-
-      let buttonID = $(this).data('id');
-      console.log(buttonID);
-
-      let userID = $('#idUser').data('id');
-      console.log(userID);
-
-      let updatedData = {
-        CategoryId: buttonID,
-        id: userID
+        location.reload();
       }
 
-      console.log(updatedData);
+      //update user's category ID
+      $('.categoryButton').click(function (event) {
+        event.preventDefault();
 
-    $.ajax("/api/user", {
-      type: "PUT",
-      data: updatedData
-    }).then(()=> {
-      console.log("CategoryId updated");
+        let buttonID = $(this).data('id');
+        console.log(buttonID);
 
-  //Display user info in my neighborhood section based on CategoryID
-      $.get("/api/user/category", (data) => {
-        console.log(data)
-      })
+        let userID = $('#idUser').data('id');
+        console.log(userID);
 
-      // $.get("/api/user/" + buttonID, (data) => {
-      //   console.log(data)
-      // })
+        let updatedData = {
+          CategoryId: buttonID,
+          id: userID
+        }
 
-    });
-  });
-})};
+        console.log(updatedData);
 
+        $.ajax("/api/user", {
+          type: "PUT",
+          data: updatedData
+        }).then(() => {
+          console.log("CategoryId updated");
 
-//Display new category buttons and its functions on relead or when user logs out and logs back in.
-window.onload = function() { 
-  $.get("/api/category", (data) => {
-    console.log(data);
-    for (var i = 0; i < data.length; i++) {
-    let categoryButton = $('<button>').addClass('categoryButton btn btn-outline-success btn-lg').attr('data-id', data[i].id).text(data[i].name).attr('type', 'button');
-    categoryList.prepend(categoryButton);
-  }
-  $('.categoryButton').click( function(event) {
-    event.preventDefault();
+          //Display user info in my neighborhood section based on CategoryID
+          $.get("/api/user/category", (data) => {
+            console.log(data)
+          })
 
-    let buttonID = $(this).data('id');
-    console.log(buttonID);
+          // $.get("/api/user/" + buttonID, (data) => {
+          //   console.log(data)
+          // })
 
-    let userID = $('#idUser').data('id');
-    console.log(userID);
-
-    let updatedData = {
-      CategoryId: buttonID,
-      id: userID
-    }
-
-  $.ajax("/api/user", {
-    type: "PUT",
-    data: updatedData
-  }).then(()=> {
-    console.log("CategoryId updated");
-
-  $.get("/api/user/category", (data) => {
-    console.log(data)
+        });
+      });
     })
-  });
- });
-})};
+  };
+
+
+  //Display new category buttons and its functions on relead or when user logs out and logs back in.
+  window.onload = function () {
+    $.get("/api/category", (data) => {
+      console.log(data);
+      for (var i = 0; i < data.length; i++) {
+        let categoryButton = $('<button>').addClass('categoryButton btn btn-outline-success btn-lg').attr('data-id', data[i].id).text(data[i].name).attr('type', 'button');
+        categoryList.prepend(categoryButton);
+      }
+      $('.categoryButton').click(function (event) {
+        event.preventDefault();
+
+        let buttonID = $(this).data('id');
+        console.log(buttonID);
+
+        let userID = $('#idUser').data('id');
+        console.log(userID);
+
+        let updatedData = {
+          CategoryId: buttonID,
+          id: userID
+        }
+
+        $.ajax("/api/user", {
+          type: "PUT",
+          data: updatedData
+        }).then(() => {
+          console.log("CategoryId updated");
+
+          $.get("/api/user/category", (data) => {
+            console.log(data)
+          })
+        });
+      });
+    })
+  };
 
 });
 
