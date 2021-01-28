@@ -3,32 +3,27 @@ $(document).ready(() => {
   const categoryInput = $("#categoryInput");
   const categoryList = $("#categoryList");
 
-  const userGroups = $("#userGroups");
-
   // Get user information to dispplay on the profile page.
   $.get("/api/user").then(data => {
     $("#emailUser").text("Email: " + data.email);
-    $("#idUser").text("ID: " + data.id);
+    $("#idUser").attr("data-id", data.id).text("ID: " + data.id);
     // $("#nameUser").text(data.first_name + " " + data.last_name);
     // $("#bioUser").text("Bio: " + data.bio);
+    //phone number
   });
 
   //Add category to list of categories
   addCategory.on("click", event => {
     event.preventDefault();
-    const newCategory= {
+    if (!categoryInput.val().trim()) {
+      return;
+    }
+    const newCategory = {
       name: categoryInput.val().trim()
     };
     console.log(newCategory.name);
 
-    let addedCategory = newCategory.name.toUpperCase();
-
-    let categoryButton = $('<button>').addClass('categoryButton btn btn-outline-success btn-lg').attr('type', 'button').attr('data-category', newCategory.name).text(addedCategory);
-    categoryList.prepend(categoryButton);
-
     insertNewCategory(newCategory.name);
-    getCategoryID();
-
   });
 
   function insertNewCategory(name) {
@@ -36,30 +31,94 @@ $(document).ready(() => {
     $.post("/api/category", {
       name: name
     })
-      .then(() => {
-        console.log("new category added");
-    })
+      .then(getCategoryID);
   }
 
   function getCategoryID() {
-    $.get("/api/category").then(data => {
-        console.log(data.id, data.name);
+    //Create new cateogry button  
+    $.get("/api/category", (data) => {
+      console.log(data);
+      for (var i = 0; i < data.length; i++) {
+        let categoryButton = $('<button>').addClass('categoryButton btn btn-outline-success btn-lg').attr('data-id', data[i].id).text(data[i].name).attr('type', 'button');
+        categoryList.prepend(categoryButton);
 
-    let buttonName = $('categoryButton').val();   
-    console.log(buttonName);
-    
-    if ( buttonName == data.name) {
-      $('categoryButton').attr('data-id', data.id);  
-    }
+        location.reload();
+      }
+
+      //update user's category ID
+      $('.categoryButton').click(function (event) {
+        event.preventDefault();
+
+        let buttonID = $(this).data('id');
+        console.log(buttonID);
+
+        let userID = $('#idUser').data('id');
+        console.log(userID);
+
+        let updatedData = {
+          CategoryId: buttonID,
+          id: userID
+        }
+
+        console.log(updatedData);
+
+        $.ajax("/api/user", {
+          type: "PUT",
+          data: updatedData
+        }).then(() => {
+          console.log("CategoryId updated");
+
+          //Display user info in my neighborhood section based on CategoryID
+          $.get("/api/user/category", (data) => {
+            console.log(data)
+          })
+
+          // $.get("/api/user/" + buttonID, (data) => {
+          //   console.log(data)
+          // })
+
+        });
+      });
     })
-  }
+  };
 
 
-  //Category Button function
-  //
+  //Display new category buttons and its functions on relead or when user logs out and logs back in.
+  window.onload = function () {
+    $.get("/api/category", (data) => {
+      console.log(data);
+      for (var i = 0; i < data.length; i++) {
+        let categoryButton = $('<button>').addClass('categoryButton btn btn-outline-success btn-lg').attr('data-id', data[i].id).text(data[i].name).attr('type', 'button');
+        categoryList.prepend(categoryButton);
+      }
+      $('.categoryButton').click(function (event) {
+        event.preventDefault();
 
+        let buttonID = $(this).data('id');
+        console.log(buttonID);
 
-  // Display List of member to My Neighborhood when click on a Category
-  
+        let userID = $('#idUser').data('id');
+        console.log(userID);
+
+        let updatedData = {
+          CategoryId: buttonID,
+          id: userID
+        }
+
+        $.ajax("/api/user", {
+          type: "PUT",
+          data: updatedData
+        }).then(() => {
+          console.log("CategoryId updated");
+
+          $.get("/api/user/category", (data) => {
+            console.log(data)
+          })
+        });
+      });
+    })
+  };
+
 });
+
 

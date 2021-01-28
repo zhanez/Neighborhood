@@ -28,6 +28,7 @@ module.exports = function(sequelize, DataTypes) {
     //   type: DataTypes.STRING,
     //   allowNull: true
     // }
+    //phone number
   });
 
   // This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
@@ -45,24 +46,14 @@ module.exports = function(sequelize, DataTypes) {
     );
   });
 
-
-//Many to Many  
-User.associate = function(models) {
-  User.belongsToMany(models.Category, {
-    through: "UserCategory", 
-      as: "Category", 
-      foreignKey: "user_id"});
-};
-
-
 //One to Many
-// User.associate = function(models) {
-//   User.hasMany(models.Category, {
-//     foreignKey: {
-//       allowNull: false
-//     }
-//   });
-// };
+User.associate = function(models) {
+  User.belongsTo(models.Category, {
+    foreignKey: {
+      allowNull: true
+    }
+  });
+};
 
   return User;
 };
