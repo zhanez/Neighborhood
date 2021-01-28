@@ -13,9 +13,9 @@ module.exports = function(app) {
     User.create({
       email: req.body.email,
       password: req.body.password,
-      // first_name: req.body.first_name,
-      // last_name: req.body.last_name,
-      // bio: req.body.bio
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      bio: req.body.bio
     })
       .then(function() {
         res.redirect(307, "/api/login");

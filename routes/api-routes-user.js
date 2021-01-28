@@ -11,10 +11,9 @@ module.exports = (app) => {
         id: req.user.id,
         email: req.user.email,
         // password: req.user.password,
-        // first_name: req.user.first_name,
-        // last_name: req.user.last_name,  
-        // bio: req.user.bio
-        // phone_number: req.user.phone_number
+        first_name: req.user.first_name,
+        last_name: req.user.last_name,  
+        bio: req.user.bio
       });
     }
   });
