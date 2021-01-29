@@ -40,6 +40,7 @@
 
 
   <div class="col-sm-4">     
+<<<<<<< HEAD
     <div class="btn-group-vertical" id="categoryCol">
       <button id="category" type="button" class="btn btn-outline-success btn-lg">General</button>
       <button id="category" type="button" class="btn btn-outline-secondary" btn-lg">COVID Talks</button>
@@ -53,6 +54,14 @@
       <button id="category"type="button" class="btn btn-outline-success btn-lg">Movies</button>
       <button type="button" class="btn btn-outline-success btn-lg">Music</button>
       <button type="button" class="btn btn-primary btn-lg btn-block">Add Category</button>
+=======
+    <div class="btn-group-vertical" id="categoryList">
+      <div id="categoryList">
+      </div>
+      <br>
+      <button type="submit" class="btn btn-primary btn-lg btn-block" id="addCategory">Add Category</button>
+      <input type="input" class="form-control" id="categoryInput" placeholder="New Category">
+>>>>>>> main
     </div>
   </div>
 
@@ -67,9 +76,10 @@
             <div class="card-body">
               <h3 class="card-title">Profile</h3>
               <br>
-              <p class="card-text">Email:</p>
-              <p class="card-text">Bio:</p>
-    
+              <p class="card-text" id="nameUser">Name</p>
+              <p class="card-text" id="emailUser">Email:</p>
+              <p class="card-text" id="bioUser">Bio:</p>
+              <p class="card-text" id="idUser">id:</p>
             </div>
           </div>
         </div>
@@ -84,11 +94,15 @@
           <div class="card-body">
             <h3 class="card-title">My Neighborhood</h3>
             <br>
-            <p class="card-text"> Dynamically Generate Group</p>
+            <div id="userGroups">
+
+          <!-- Use this section for group info     -->
+            <h4 class="card-text" id="categoryHeader"> Dynamically Generate Group</h4>
             <p class="card-text">Dynamically Generate Group</p>
             <p class="card-text">Dynamically Generate Group</p>
             <p class="card-text">Dynamically Generate Group</p>
             <p class="card-text">Dynamically Generate Group</p>
+            </div>
           </div>
         </div>
       </div>
