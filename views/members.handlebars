@@ -1,78 +1,67 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <header>
+        <header id="headermember">
             <a class="navbar-brand" href="/logout">
                 Logout
             </a>
             <h1 class="display-4 text-center">The Neighborhood</h1>
             <p class="lead text-center">Some information regarding Neighborhood's Services and what users can expect
                 from the site. </p>
-    </div>
-    </header>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <h2 class="text-center"> Homepage <span class="member-name"></span></h2>
-        </div>
+        </header>
     </div>
 </div>
 
-<div>
-    <input id="searchBar" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-</div>
+<main id="memberspage">
 
-<div class="col-sm-4">
-    <div class="btn-group-vertical" id="categoryList">
-        <div id="categoryList">
-        </div>
-        <br>
-        <button type="submit" class="btn btn-primary btn-lg btn-block" id="addCategory">Add Category</button>
-        <input type="input" class="form-control" id="categoryInput" placeholder="New Category">
-    </div>
-</div>
+    
 
-<div class="column mt-5">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="card-deck">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">Profile</h3>
-                        <br>
-                        <p class="card-text text-dark" id="nameUser">Name:</p>
-                        <p class="card-text text-dark" id="emailUser">Email:</p>
-                        <p class="card-text text-dark" id="bioUser">Bio:</p>
-                        <p class="card-text text-dark" id="idUser">id:</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2" id="categoryBlock">
+                <div class="btn-group-vertical">
+                    <input type="input" class="form-control" id="categoryInput" placeholder="New Category">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" id="addCategory">Add
+                        Category</button>
+                    <br>
+                    <div id="categoryList" class="btn-group-vertical">
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card-deck">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="card-title text-center">Profile</h1>
+                            <br>
+                            <p class="card-text text-dark" id="nameUser">Name:</p>
+                            <p class="card-text text-dark" id="emailUser">Email:</p>
+                            <p class="card-text text-dark" id="bioUser">Bio:</p>
+                            <p class="card-text text-dark" id="idUser">id:</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col-sm-12">
-            <div class="card-deck">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">My Neighborhood</h3>
-                        <br>
-                        <div id="userGroups">
-
+            <div class="col-sm">
+                <div class="card-deck">
+                    <div class="card">
+                        <h1 class="card-title text-center">My Neighborhood</h1>
+                        <div> Select a category to connect with others who share the same interest!</div>
+                        <div class="card-body">
+                            <br>
                             <!-- Use this section for group info     -->
-                            <h4 class="card-text" id="categoryHeader"> Dynamically Generate Group</h4>
-                            <p class="card-text">Dynamically Generate Group</p>
-                            <p class="card-text">Dynamically Generate Group</p>
-                            <p class="card-text">Dynamically Generate Group</p>
-                            <p class="card-text">Dynamically Generate Group</p>
+                            <div>
+                                <h3 class="card-text text-dark" id="categoryHeader"></h3>
+                                <div id="userGroups">
+                                    {{!-- appended user data --}}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-    <script type="text/javascript" src="js/members.js"></script>
+</main>
+<script type="text/javascript" src="js/members.js"></script>

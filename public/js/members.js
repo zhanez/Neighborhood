@@ -2,6 +2,7 @@ $(document).ready(() => {
   const addCategory = $("#addCategory");
   const categoryInput = $("#categoryInput");
   const categoryList = $("#categoryList");
+  const userGroups = $("#userGroups");
 
   // Get user information to dispplay on the profile page.
   $.get("/api/user").then(data => {
@@ -11,7 +12,6 @@ $(document).ready(() => {
     $("#bioUser").text("Bio: " + data.bio);
   });
 
-  //Add category to list of categories
   addCategory.on("click", event => {
     event.preventDefault();
     if (!categoryInput.val().trim()) {
@@ -31,6 +31,7 @@ $(document).ready(() => {
       name: name
     })
       .then(getCategoryID);
+      location.reload();
   }
 
   function getCategoryID() {
@@ -40,61 +41,28 @@ $(document).ready(() => {
       for (var i = 0; i < data.length; i++) {
         let categoryButton = $('<button>').addClass('categoryButton btn btn-outline-success btn-lg').attr('data-id', data[i].id).text(data[i].name).attr('type', 'button');
         categoryList.prepend(categoryButton);
-
-        location.reload();
       }
-
-      //update user's category ID
-      $('.categoryButton').click(function (event) {
-        event.preventDefault();
-
-        let buttonID = $(this).data('id');
-        console.log(buttonID);
-
-        let userID = $('#idUser').data('id');
-        console.log(userID);
-
-        let updatedData = {
-          CategoryId: buttonID,
-          id: userID
-        }
-
-        console.log(updatedData);
-
-        $.ajax("/api/user", {
-          type: "PUT",
-          data: updatedData
-        }).then(() => {
-          console.log("CategoryId updated");
-
-          //Display user info in my neighborhood section based on CategoryID
-          $.get("/api/user/category", (data) => {
-            console.log(data)
-          })
-
-          // $.get("/api/user/" + buttonID, (data) => {
-          //   console.log(data)
-          // })
-
-        });
-      });
     })
   };
 
-
-  //Display new category buttons and its functions on relead or when user logs out and logs back in.
+  // Display new category buttons and its functions on relead or when user logs out and logs back in.
   window.onload = function () {
     $.get("/api/category", (data) => {
       console.log(data);
       for (var i = 0; i < data.length; i++) {
-        let categoryButton = $('<button>').addClass('categoryButton btn btn-outline-success btn-lg').attr('data-id', data[i].id).text(data[i].name).attr('type', 'button');
+        let categoryButton = $('<button>').addClass('categoryButton btn btn-outline-success btn-lg').attr('data-id', data[i].id).attr('data-name', data[i].name).attr('type', 'button').text(data[i].name);
         categoryList.prepend(categoryButton);
       }
       $('.categoryButton').click(function (event) {
         event.preventDefault();
 
+        let buttonName = $(this).data('name').toUpperCase();
+        console.log(buttonName);
+        localStorage.setItem("buttonName", buttonName)
+
         let buttonID = $(this).data('id');
         console.log(buttonID);
+        localStorage.setItem("buttonID", buttonID)
 
         let userID = $('#idUser').data('id');
         console.log(userID);
@@ -110,14 +78,43 @@ $(document).ready(() => {
         }).then(() => {
           console.log("CategoryId updated");
 
-          $.get("/api/user/category", (data) => {
-            console.log(data)
+  //Display users associtated in selected category within in my neghborhood section    
+        $.get("/api/user/" + buttonID, (userData) => {
+          console.log(userData)
+
+          $("#categoryHeader").text(buttonName);
+          for (var i = 0; i < userData.length; i++) {
+            let userNameDisplay = $('<h2>').addClass('user-display text-dark').attr('data-id', userData[i].id).text("Name: " + userData[i].first_name + " " + userData[i].last_name);
+            let userEmailDisplay = $('<h3>').addClass('user-display text-dark').attr('data-id', userData[i].id).text("Email: " + userData[i].email);
+            let userBioDisplay = $('<h4>').addClass('user-display text-dark').attr('data-id', userData[i].id).text("Bio: " + userData[i].bio);
+
+            userGroups.append(userNameDisplay, userEmailDisplay, userBioDisplay, $('<br>'));
+
+            location.reload();
+          }
           })
         });
       });
     })
-  };
 
+  const getButtonName= localStorage.getItem("buttonName");
+  const getButtonID= localStorage.getItem("buttonID");
+  console.log(getButtonName);
+  console.log(getButtonID);
+
+    $.get("/api/user/" + getButtonID, (userData) => {
+      console.log(userData)
+
+      $("#categoryHeader").text(getButtonName);
+      for (var i = 0; i < userData.length; i++) {
+        let userNameDisplay = $('<h2>').addClass('user-display text-dark').attr('data-id', userData[i].id).text("Name: " + userData[i].first_name + " " + userData[i].last_name);
+        let userEmailDisplay = $('<h3>').addClass('user-display text-dark').attr('data-id', userData[i].id).text("Email: " + userData[i].email);
+        let userBioDisplay = $('<h4>').addClass('user-display text-dark').attr('data-id', userData[i].id).text("Bio: " + userData[i].bio);
+
+        userGroups.append(userNameDisplay, userEmailDisplay, userBioDisplay, $('<br>'));
+      }
+    })
+  };
 });
 
 

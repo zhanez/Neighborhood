@@ -19,12 +19,12 @@ form.login {
   padding: 20%;
   
 }
-#category{
+/* #addCategory{
   background-color:white;
-}
+} */
 
-.card-body{
-  margin-bottom: 10%;
+#categoryBlock {
+  min-width:fit-content;
 }
 
 #currentMem{
@@ -45,24 +45,43 @@ form.login {
     color:white
  }
 
-#bodybody{
+.accessbody{
   background-image: url("smartphone-720684_1920.jpg");
    background-repeat: no-repeat;
    background-size: cover;
-   background-color: cadetblue;
+   
  }
 
 #memberspage{
   background-image: url("headerpic.jpg");
+  background-size:100% 100%;
+  margin: 10px;
   background-repeat: no-repeat;
-  /* background-size: cover; */
+  
 }
 
 #headermember{
-  background-image: url("headerpic.jpg");
+  background-image: url("wood.jpg");
   background-size: cover;
 }
 
 label {
   color:black;
  }
+
+.categoryButton{
+  background-color: white;
+}
+ 
+
+
+ /* Scroll bar for category list in case it is overflowing, need to create a card to hold categories for boundaries */
+ 
+ /* #categoryList {
+  overflow-y: scroll;
+  height: 1000%;
+} */
+#info{
+  font-size: 20px;
+  
+}
