@@ -17,6 +17,10 @@ form.login {
 #categoryCol{
   margin-top: 6%;
   padding: 20%;
+  
+}
+#category{
+  background-color:white;
 }
 
 .card-body{
@@ -35,19 +39,30 @@ form.login {
   align-content: center;
 } */
 
+
  p{
     font-size: 20px;
     color:white
  }
 
- body{
-   background-image: url("smartphone-720684_1920.jpg");
+#bodybody{
+  background-image: url("smartphone-720684_1920.jpg");
    background-repeat: no-repeat;
    background-size: cover;
    background-color: cadetblue;
  }
 
- label {
+#memberspage{
+  background-image: url("headerpic.jpg");
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+}
 
-  color:black
+#headermember{
+  background-image: url("headerpic.jpg");
+  background-size: cover;
+}
+
+label {
+  color:black;
  }
