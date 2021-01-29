@@ -51,3 +51,11 @@ form.login {
 
   color:black
  }
+
+
+ /* Scroll bar for category list in case it is overflowing, need to create a card to hold categories for boundaries */
+ 
+ /* #categoryList {
+  overflow-y: scroll;
+  height: 1000%;
+} */

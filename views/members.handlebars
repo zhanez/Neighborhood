@@ -19,14 +19,19 @@
     </div>
 </div>
 
-<div>
+{{!-- <div>
     <input id="searchBar" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-</div>
+</div> --}}
 
 <div class="col-sm-4">
-    <div class="btn-group-vertical" id="categoryList">
-        <div id="categoryList">
+    <div class="btn-group-vertical">
+        <div id="categoryList" class="btn-group-vertical">
+            {{!-- {{#each categories}}
+                    <button data-id="{{this.id}}" class="categoryButton btn btn-outline-success btn-lg">
+                    {{this.id}}. {{this.name}}
+                    </button>
+            {{/each}}   --}}
         </div>
         <br>
         <button type="submit" class="btn btn-primary btn-lg btn-block" id="addCategory">Add Category</button>
@@ -57,16 +62,14 @@
             <div class="card-deck">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title">My Neighborhood</h3>
+                        <h1 class="card-title">My Neighborhood</h1>
                         <br>
-                        <div id="userGroups">
-
-                            <!-- Use this section for group info     -->
-                            <h4 class="card-text" id="categoryHeader"> Dynamically Generate Group</h4>
-                            <p class="card-text">Dynamically Generate Group</p>
-                            <p class="card-text">Dynamically Generate Group</p>
-                            <p class="card-text">Dynamically Generate Group</p>
-                            <p class="card-text">Dynamically Generate Group</p>
+                        <!-- Use this section for group info     -->
+                        <div>
+                            <h3 class="card-text" id="categoryHeader"> Select a category to connect with others who share the same interest!</h3>
+                            <div id="userGroups">
+                                {{!-- appended user data --}}
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -20,10 +20,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Requiring routes
+require("./routes/html-routes.js")(app);
 require("./routes/api-routes-access.js")(app);
 require("./routes/api-routes-category.js")(app);
 require("./routes/api-routes-user.js")(app);
-require("./routes/html-routes.js")(app);
 
 // Set Handlebars
 const exphbs = require("express-handlebars");
