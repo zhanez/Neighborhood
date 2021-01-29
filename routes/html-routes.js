@@ -6,14 +6,14 @@ module.exports = function(app){
         if(req.table){
             res.redirect("/members");
         }
-        res.sendFile(path.join(__dirname, "../public/signup.html"));
+        res.render("signup");
     });
 
     app.get("/signup", function(req,res){
         if(req.table){
             res.redirect("/members");
         }
-        res.sendFile(path.join(__dirname, "../public/signup.html"));
+        res.render("signup");
     })
 
     //route to signup page
@@ -22,16 +22,11 @@ module.exports = function(app){
         if (req.user) {
             res.redirect("/members");
         }
-        res.sendFile(path.join(__dirname, "../public/login.html"));
+        res.render("login");
     });
 
     //route to members page
     app.get("/members", isAuthenticated, function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/members.html"));
+        res.render("members");
     });
-
-    // route to grouptemplate page
-//     app.get("/grouptemplate", isAuthenticated, function (req, res) {
-//         res.sendFile(path.join(__dirname, "../public/grouptemplate.html"));
-//     });
 };
