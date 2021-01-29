@@ -30,8 +30,8 @@ module.exports = function(app){
         res.sendFile(path.join(__dirname, "../public/members.html"));
     });
 
-    //route to grouptemplate page
-    // app.get("/grouptemplate", isAuthenticated, function (req, res) {
-    //     res.sendFile(path.join(__dirname, "../public/grouptemplate.html"));
-    // });
+    // route to grouptemplate page
+//     app.get("/grouptemplate", isAuthenticated, function (req, res) {
+//         res.sendFile(path.join(__dirname, "../public/grouptemplate.html"));
+//     });
 };
