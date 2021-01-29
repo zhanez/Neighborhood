@@ -12,28 +12,6 @@ $(document).ready(() => {
     $("#bioUser").text("Bio: " + data.bio);
   });
 
-  //Add category to list of categories==================== handlebars version
-  // addCategory.on("click", event => {
-  //   event.preventDefault();
-  //   if (!categoryInput.val().trim()) {
-  //     return;
-  //   }
-  //   const newCategory = {
-  //     name: categoryInput.val().trim()
-  //   };
-  //   console.log(newCategory);
-
-  //   $.ajax("/api/category", {
-  //     type: "POST",
-  //     data: newCategory
-  //   }).then(() => {
-  //       console.log("added new category");
-  //       // location.reload();
-  //     }
-  //   );
-  // });
-
-//  Add category to list of categories============================ not handlebars version
   addCategory.on("click", event => {
     event.preventDefault();
     if (!categoryInput.val().trim()) {
@@ -80,9 +58,11 @@ $(document).ready(() => {
 
         let buttonName = $(this).data('name').toUpperCase();
         console.log(buttonName);
+        localStorage.setItem("buttonName", buttonName)
 
         let buttonID = $(this).data('id');
         console.log(buttonID);
+        localStorage.setItem("buttonID", buttonID)
 
         let userID = $('#idUser').data('id');
         console.log(userID);
@@ -109,13 +89,32 @@ $(document).ready(() => {
             let userBioDisplay = $('<h4>').addClass('user-display text-dark').attr('data-id', userData[i].id).text("Bio: " + userData[i].bio);
 
             userGroups.append(userNameDisplay, userEmailDisplay, userBioDisplay, $('<br>'));
+
+            location.reload();
           }
           })
         });
       });
     })
-  };
 
+  const getButtonName= localStorage.getItem("buttonName");
+  const getButtonID= localStorage.getItem("buttonID");
+  console.log(getButtonName);
+  console.log(getButtonID);
+
+    $.get("/api/user/" + getButtonID, (userData) => {
+      console.log(userData)
+
+      $("#categoryHeader").text(getButtonName);
+      for (var i = 0; i < userData.length; i++) {
+        let userNameDisplay = $('<h2>').addClass('user-display text-dark').attr('data-id', userData[i].id).text("Name: " + userData[i].first_name + " " + userData[i].last_name);
+        let userEmailDisplay = $('<h3>').addClass('user-display text-dark').attr('data-id', userData[i].id).text("Email: " + userData[i].email);
+        let userBioDisplay = $('<h4>').addClass('user-display text-dark').attr('data-id', userData[i].id).text("Bio: " + userData[i].bio);
+
+        userGroups.append(userNameDisplay, userEmailDisplay, userBioDisplay, $('<br>'));
+      }
+    })
+  };
 });
 
 
