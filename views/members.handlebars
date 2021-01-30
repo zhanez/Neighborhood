@@ -1,40 +1,34 @@
-<div class="jumbotron jumbotron-fluid">
+<main id="memberspage">
+<div class="jumbotron jumbotron-fluid" id="headermember">
     <div class="container">
-        <header id="headermember">
+        <header>
             <a class="navbar-brand" href="/logout">
                 Logout
             </a>
-            <h1 class="display-4 text-center">The Neighborhood</h1>
-            <p class="lead text-center">Some information regarding Neighborhood's Services and what users can expect
-                from the site. </p>
+            <h1 class="display-4 text-center text-dark" id="headerTitle">The Neighborhood</h1>
+            <h2 class="lead text-center text-success" id="slogan">A life with others is a life worthwhile </h2>
         </header>
     </div>
 </div>
-
-<main id="memberspage">
-
-    
 
     <div class="container">
         <div class="row">
             <div class="col-sm-2" id="categoryBlock">
                 <div class="btn-group-vertical">
                     <input type="input" class="form-control" id="categoryInput" placeholder="New Category">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" id="addCategory">Add
-                        Category</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" id="addCategory">Add Category</button>
                     <br>
-                    <div id="categoryList" class="btn-group-vertical">
-                    </div>
-                    
-                    
+                    <div id="categoryList" class="card btn-group-vertical"></div>   
                 </div>
             </div>
             <div class="col-sm">
                 <div class="card-deck">
                     <div class="card">
-                        <div class="card-body">
-                            <h1 class="card-title text-center">Profile</h1>
-                            <br>
+                        <h1 class="card-title text-center">Profile</h1>
+                        <br>
+                        <div class="card-body" id="profileSection">
+                            {{!-- <h1 class="card-title text-center">Profile</h1>
+                            <br> --}}
                             <p class="card-text text-dark" id="nameUser">Name:</p>
                             <p class="card-text text-dark" id="emailUser">Email:</p>
                             <p class="card-text text-dark" id="bioUser">Bio:</p>
@@ -47,12 +41,13 @@
                 <div class="card-deck">
                     <div class="card">
                         <h1 class="card-title text-center">My Neighborhood</h1>
-                        <div> Select a category to connect with others who share the same interest!</div>
-                        <div class="card-body">
+                        {{!-- <div> Select a category to connect with others who share the same interest!</div> --}}
+                        <div class="card-body" id="neighborhoodSection">
                             <br>
                             <!-- Use this section for group info     -->
                             <div>
                                 <h3 class="card-text text-dark" id="categoryHeader"></h3>
+                                <br>
                                 <div id="userGroups">
                                     {{!-- appended user data --}}
                                 </div>
@@ -61,6 +56,7 @@
                     </div>
                 </div>
             </div>
+            <h1 id="instruction" class="instruction text-white text-center"> Select a category to connect with others who share the same interest!</h1>
         </div>
     </div>
 </main>
