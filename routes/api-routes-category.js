@@ -4,7 +4,9 @@ module.exports = (app) => {
 
 //get route to display ALL categorys in "existing category" section
 app.get("/api/category", (req, res) => {
-    Category.findAll({}).then((dbCategory) => {
+    Category.findAll({ order: [
+      ['name', 'DESC']
+    ]}).then((dbCategory) => {
       res.json(dbCategory);  
     }); 
 });
