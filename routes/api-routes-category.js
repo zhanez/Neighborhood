@@ -15,6 +15,8 @@ app.get("/api/category", (req, res) => {
 app.post("/api/category", (req, res) => {
     Category.create({name: req.body.name}).then((dbCategory) => {
       res.json(dbCategory);
+    }).catch(function(err) {
+      res.status(401).json(err);
     });
   });
 };
