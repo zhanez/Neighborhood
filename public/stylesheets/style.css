@@ -43,11 +43,12 @@ body {
   box-shadow: 10px 0px 13px black;
 } */
 
-.card{
+#profileCard, #neighborhoodCard{
   margin-bottom: 80%;
   margin-top: 15%;
   box-shadow: 7px 10px 20px black;
   height: 292px;
+  width: 520px;;
 }
 /* .navBar{
   align-content: center;
@@ -81,8 +82,16 @@ label {
   color:black;
  }
 
-.categoryButton{
-  background-color: white;
+.categoryButton {
+  background-color: #198754;
+  color: white;
+  border-color: white;
+}
+
+.categoryButton:hover {
+  background-color: rgb(195, 240, 200);
+  color: #198754;
+  border-color: #198754;
 }
 
 .user-display {
@@ -92,13 +101,13 @@ font-style: none;
 
  /* Scroll bar for category list in case it is overflowing, need to create a card to hold categories for boundaries */
  
- #categoryList {
-  overflow-y: scroll;
-  height: 188px;
+ #categoryCard{
+  height: 212px;
   width: 160px;
+  box-shadow: 7px 10px 20px black;
 }
 
-#neighborhoodSection, #profileSection {
+#neighborhoodSection, #profileSection, #categoryList {
   overflow-y: scroll;
 }
 
@@ -116,7 +125,7 @@ font-style: none;
 
 #slogan {
   font-size: 25px;
-  margin-left: 80px;
+  margin-left: 14px;
   text-shadow: rgb(0 8 0) 0px 0px 1px;
   -webkit-text-stroke: .5px rgb(1, 57, 3);
 }
@@ -134,6 +143,7 @@ font-style: none;
   width: 60px;
   border-radius: 5px;
   border: 1px solid black;
+  box-shadow: 4px 6px 19px black;
 }
 
 #logoutBox:hover {
@@ -146,4 +156,12 @@ font-style: none;
   font-size: 10px;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-decoration: none;
+}
+
+.card-title {
+  background-image: url("wood2.jpg");
+  background-size: cover;
+  text-shadow: rgb(0 8 0) 0px 0px 10px;
+   -webkit-text-stroke: .6px rgb(1, 57, 3);
+  padding: 5px;
 }

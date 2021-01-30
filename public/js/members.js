@@ -7,7 +7,7 @@ $(document).ready(() => {
   // Get user information to dispplay on the profile page.
   $.get("/api/user").then(data => {
     $("#emailUser").text("Email: " + data.email);
-    $("#idUser").attr("data-id", data.id).text("ID: " + data.id);
+    $("#idUser").attr("data-id", data.id)
     $("#nameUser").text("Name: " + data.first_name + " " + data.last_name);
     $("#bioUser").text("Bio: " + data.bio);
   });
