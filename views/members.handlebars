@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-2" id="categoryBlock">
-                <div class="btn-group-vertical">
+                <div class="btn-group-vertical" id="categoryInputArea">
                     <input type="input" class="form-control" id="categoryInput" placeholder="New Category">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" id="addCategory">Add Category</button>
                     <br>
@@ -24,14 +24,12 @@
                     </div>   
                 </div>
             </div>
-            <div class="col-sm">
+            <div class="col-sm" id="profileBlock">
                 <div class="card-deck">
                     <div class="card" id="profileCard">
                         <h1 class="card-title text-center text-white">Profile</h1>
                         <br>
                         <div class="card-body" id="profileSection">
-                            {{!-- <h1 class="card-title text-center">Profile</h1>
-                            <br> --}}
                             <p class="card-text text-dark" id="nameUser">Name:</p>
                             <p class="card-text text-dark" id="emailUser">Email:</p>
                             <p class="card-text text-dark" id="bioUser">Bio:</p>
@@ -40,11 +38,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm">
+            <div class="col-sm" id="neighborhoodBlock">
                 <div class="card-deck">
                     <div class="card" id="neighborhoodCard">
                         <h1 class="card-title text-center text-white">My Neighborhood</h1>
-                        {{!-- <div> Select a category to connect with others who share the same interest!</div> --}}
                         <div class="card-body" id="neighborhoodSection">
                             <br>
                             <!-- Use this section for group info     -->
