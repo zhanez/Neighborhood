@@ -125,3 +125,25 @@ font-style: none;
   text-shadow: rgb(0 8 0) 0px 0px 2px;
   /* -webkit-text-stroke: .5px rgb(1, 57, 3); */
 }
+
+#logoutBox {
+  background-color: #0D6EFD;
+  height: 25px;
+  padding-top: 4px;
+  padding-bottom: 10px;
+  width: 60px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+#logoutBox:hover {
+  background-color: rgb(46, 80, 184);
+}
+
+#logout {
+  margin-left: 8px;
+  color: white;
+  font-size: 10px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-decoration: none;
+}
