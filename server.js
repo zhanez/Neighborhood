@@ -31,7 +31,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Syncing our database and logging a message to the user upon successs
-db.sequelize.sync({force: true}).then(function () {
+db.sequelize.sync().then(function () {
     app.listen(PORT, function () {
         console.log("Server listening on: http://localhost:" + PORT);
     });
