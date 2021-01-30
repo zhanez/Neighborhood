@@ -55,9 +55,12 @@ The future development of the Neighborhood would be the scalability. The possibi
 ## Links:
 Heroku: https://neighborhood-connectwithothers.herokuapp.com/
 
+
 ## Contributors: 
 - Ian Fleshman-Cooper
 - Zhane Zabala
 - Ryan Murphy
 - Truc Nguyen
 - Rowan Oliver 
+
+![screenshot](/public/stylesheets/signup.png)
