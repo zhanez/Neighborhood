@@ -25,9 +25,6 @@ body {
   padding: 20%;
   
 }
-/* #addCategory{
-  background-color:white;
-} */
 
 #categoryBlock {
   min-width:fit-content;
@@ -36,12 +33,7 @@ body {
 
 #currentMem{
   padding: 40px;
-  /* margin-bottom: 100% */
 }
-
-/* .card-body {
-  box-shadow: 10px 0px 13px black;
-} */
 
 #profileCard, #neighborhoodCard{
   margin-bottom: 80%;
@@ -50,10 +42,6 @@ body {
   height: 292px;
   width: 520px;;
 }
-/* .navBar{
-  align-content: center;
-} */
-
 
  p{
     font-size: 20px;
@@ -68,7 +56,6 @@ body {
 #memberspage{
   background-image: url(headerpic.jpg);
   background-size: 100% 100%;
-  /* margin: -30px 10px; */
   background-repeat: no-repeat;
 }
 
@@ -98,8 +85,6 @@ label {
 font-size: 15px;
 font-style: none;
 }
-
- /* Scroll bar for category list in case it is overflowing, need to create a card to hold categories for boundaries */
  
  #categoryCard{
   height: 212px;
@@ -119,7 +104,6 @@ font-style: none;
 #instruction {
   margin-top: -200px;
   font-size: 34px;
-  /* -webkit-text-stroke: .4px rgb(1, 57, 3); */
   text-shadow: rgb(0 8 0) 2px 0px 6px;
 }
 
@@ -132,7 +116,6 @@ font-style: none;
 
 #headerTitle {
   text-shadow: rgb(0 8 0) 0px 0px 2px;
-  /* -webkit-text-stroke: .5px rgb(1, 57, 3); */
 }
 
 #logoutBox {
@@ -165,3 +148,103 @@ font-style: none;
    -webkit-text-stroke: .6px rgb(1, 57, 3);
   padding: 5px;
 }
+
+
+/* ===================================================================== Media Screens =============================================================== */
+
+@media screen and (max-width:1420px){
+  #profileCard, #neighborhoodCard{
+    width: 460px;
+  }
+}
+
+@media screen and (max-width:1200px){
+  #profileCard, #neighborhoodCard{
+    width: 370px;
+  }
+}
+
+@media screen and (max-width:1000px){
+  #profileCard, #neighborhoodCard{
+    width: 250px;
+  } 
+  
+  #categoryBlock {
+    margin-top: 5%;
+}
+
+#instruction {
+  margin-top: -175px;
+}
+}
+
+@media screen and (max-width:765px){
+  #profileCard, #neighborhoodCard{
+    width: 100%;
+  }
+
+  #categoryInputArea {
+    width: 100%;
+  }
+
+  #categoryCard{
+    width: 100%;
+  }
+
+  #neighborhoodBlock {
+    margin-top: -293px;
+  }
+
+  #instruction {
+    margin-top: -297px;
+    font-size: 28px;
+  }
+
+  #memberspage{
+    background-size: 224em;
+  }
+
+  #categoryBlock {
+    margin-top: 9.5%;
+}
+}
+
+@media screen and (max-width:580px){
+
+  #neighborhoodBlock {
+    margin-top: -293px;
+  }
+
+}
+
+@media screen and (max-width:425px){
+#instruction {
+  margin-top: -265px;
+  font-size: 21px;
+}
+
+#slogan {
+  font-size: 18px;
+}
+}
+
+@media screen and (max-width:380px){
+  #instruction {
+    margin-top: -210px;
+  }
+  #neighborhoodBlock {
+    margin-top: -243px;
+  }
+  }
+
+  @media screen and (max-width:285px){
+    #instruction {
+      margin-top: -197px;
+    }
+    #neighborhoodBlock {
+      margin-top: -239px;
+    }
+    #slogan {
+      font-size: 12px;
+    }
+    }
