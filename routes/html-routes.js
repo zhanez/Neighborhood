@@ -5,10 +5,10 @@ const {Category} = require("../models");
 
 module.exports = function(app){
     app.get("/", function(req, res){
-            if(!req.table){
-                res.redirect("/signup");    
+            if(req.table){
+                res.redirect("/members");    
             }   
-            res.render("members"); 
+            res.render("signup"); 
     });
 
     app.get("/signup", function(req,res){
